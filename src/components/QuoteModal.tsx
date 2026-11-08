@@ -22,6 +22,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mailtoLink, setMailtoLink] = useState('');
 
   React.useEffect(() => {
     if (defaultPackage) setSelectedPkg(defaultPackage);
@@ -42,9 +44,6 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     window.open(`https://wa.me/${PROFILE_DATA.whatsapp.replace(/[^0-9]/g, '')}?text=${text}`, '_blank');
     onClose();
   };
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [mailtoLink, setMailtoLink] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
